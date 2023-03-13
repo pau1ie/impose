@@ -5,7 +5,7 @@ from pypdf import PdfWriter, PdfReader, Transformation, PaperSize
 
 pp=pprint.PrettyPrinter()
 
-inputfile="/home/paul/Documents/RoomView3.pdf"
+inputfile="input.pdf"
 hfolds=3
 vfolds=2
 
@@ -191,7 +191,7 @@ def unfold(bookinfo):
     return book
 
 def create_impose_plan(bookinfo, section):
-    # This is currently hardcoded to A4
+    # This is currently hardcoded to A4, and doesn't seem to work.
     page_width=595
     page_height=842
 
@@ -261,7 +261,7 @@ def arrange_pdf(bookinfo, section, reader):
 bookinfo=info(pages, sidespersection, hfolds, vfolds)
 section=unfold(bookinfo)
 #pp.pprint(bookinfo)
-impose_plan=create_impose_plan(bookinfo, section)
+#impose_plan=create_impose_plan(bookinfo, section)
 arrange_pdf(bookinfo,section,reader)
 
 with open('impose_plan', 'w', encoding='utf-8') as f:
