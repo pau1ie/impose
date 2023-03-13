@@ -1,0 +1,4 @@
+pypdf
+argparse
+sys
+pprint
